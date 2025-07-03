@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  background: linear-gradient(#000428, #004e92);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden; /* evita scroll na tela */
+}
+
+header {
+  text-align: center;
+  padding: 1em;
+  font-size: 2em;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+header h1 {
+  animation: titleGlow 2s infinite alternate;
+  transition: transform 0.3s;
+  display: inline-block;
+}
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+    transform: scale(1);
+  }
+  to {
+    text-shadow: 0 0 20px #0ff, 0 0 30px #0ff, 0 0 40px #0ff;
+    transform: scale(1.05);
+  }
+}
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+background: #33373b;
+background: linear-gradient(90deg,rgba(51, 55, 59, 1) 22%, rgba(33, 40, 95, 1) 64%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.intro-image {
+  max-width: 600px;
+  margin-bottom: 2em;
+}
+
+.intro-screen button {
+  padding: 1em 2em;
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 20px;
+  background: linear-gradient(90deg,rgb(41, 49, 58) 22%, rgb(45, 55, 128) 64%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  transition: background 0.5s, transform 0.3s, box-shadow 0.3s;
+}
+.intro-screen button:hover {
+  background: linear-gradient(90deg,rgb(51, 60, 70) 22%, rgb(55, 65, 140) 64%);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+.hidden {
+  display: none;
+}
+
+.guild {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5em;
+  border-top: 2px solid #0ff;
+  border-bottom: 2px solid #0ff;
+}
+
+.guild-top {
+  flex-direction: row-reverse;
+  background: rgba(255, 0, 0, 0.2);
+}
+
+.guild-bottom {
+  background: rgba(0, 0, 255, 0.2);
+}
+
+.deck {
+  display: flex;
+  gap: 0.5em;
+}
+
+.card {
+  width: 120px;
+  height: 180px;
+  background: #222;
+  border: 2px solid gold;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-bottom: 1px solid gold;
+}
+
+.card .info {
+  font-size: 0.8em;
+  padding: 0.3em;
+}
+
+.battlefield {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 400px;
+  margin: 1em 0;
+  border: 2px solid #0ff;
+  border-radius: 20px;
+  background: url('https://i.imgur.com/4Z5b1zH.jpg') center/cover no-repeat;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  position: relative;
+}
+
+.slot-row {
+  display: flex;
+  gap: 0.5em;
+}
+
+.slot {
+  width: 120px;
+  height: 180px;
+  border: 2px dashed #888;
+  border-radius: 10px;
+}
+
+.controls {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.controls button {
+  margin: 0 0.5em;
+  padding: 0.5em 1em;
+}
+
+.chat {
+  position: absolute;
+  right: 1em;         /* afastado 1em da borda direita */
+  top: 1em;           /* afastado 1em do topo */
+  width: 300px;       /* largura do chat */
+  height: 200px;      /* altura do chat, deixando ele um "quadrado" menor */
+  background: rgba(0,0,0,0.7);
+  padding: 0.5em;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat h3 {
+  text-align: center;
+  margin: 0 0 0.5em 0;
+  font-size: 1em;
+}
+
+.chat .log {
+  flex: 1;                      /* ocupa o resto do espaço do chat */
+  overflow-y: auto;             /* ativa scroll automático */
+  max-height: 100%;             /* garante que ocupe a altura toda do chat */
+}
+.card-drop-effect {
+  animation: drop-glow 0.5s ease;
+}
+
+@keyframes drop-glow {
+  0% { box-shadow: 0 0 0 rgba(0,255,255,0); transform: scale(1); }
+  50% { box-shadow: 0 0 20px rgba(0,255,255,0.7); transform: scale(1.1); }
+  100% { box-shadow: 0 0 0 rgba(0,255,255,0); transform: scale(1); }
+}
+.card-destroy-effect {
+  animation: destroy-flash 0.5s ease;
+}
+
+@keyframes destroy-flash {
+  0% { filter: brightness(1); transform: scale(1); }
+  50% { filter: brightness(3); transform: scale(1.2); }
+  100% { filter: brightness(0); transform: scale(0); }
+}

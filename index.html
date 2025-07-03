@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo de Cartas - Solo Leveling</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="intro-screen" id="intro-screen">
+    <img src="sua_imagem_de_intro.png" alt="Intro" class="intro-image">
+    <button onclick="startGame()">Iniciar Jogo</button>
+  </div>
+
+  <header>
+    <h1>Solo Leveling Card Battle</h1>
+  </header>
+
+  <main id="game-area" class="hidden">
+    <div class="guild guild-top" id="guild2">
+      <h2>Guilda 2 (IA)</h2>
+      <div class="deck" id="hand2"></div>
+      <div class="mana">Mana: <span id="mana2">5</span></div>
+      <div class="life">HP: <span id="hp2">1200</span></div>
+    </div>
+
+    <div class="battlefield" id="battlefield">
+      <div class="slot-row" id="guild2-slots"></div>
+      <div class="slot-row" id="guild1-slots"></div>
+    </div>
+
+    <div class="guild guild-bottom" id="guild1">
+      <h2>Guilda 1 (Você)</h2>
+      <div class="deck" id="hand1"></div>
+      <div class="mana">Mana: <span id="mana1">5</span></div>
+      <div class="life">HP: <span id="hp1">1200</span></div>
+    </div>
+
+    <div class="controls">
+      <button onclick="buyCard()">Comprar Carta</button>
+      <button onclick="attackOpponent()">Atacar Jogador</button>
+      <button onclick="endTurn()">Finalizar Turno</button>
+      <button onclick="resetGame()">Reiniciar Jogo</button>
+    </div>
+
+    <div class="chat">
+      <h3>Chat</h3>
+      <div class="log" id="chat-log"></div>
+    </div>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
